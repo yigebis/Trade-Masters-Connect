@@ -1,0 +1,51 @@
+nav{
+    position : fixed;
+    /* top : 120px; */
+    left : 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width : 25%;
+    height : inherit;
+    background-color: rgb(255, 255, 255);
+    border-right-style: dashed;
+    border-right-width: 1px;
+    border-right-color: rgb(189, 192, 194);
+}
+#profile{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+#profile-photo{
+    height : 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin-bottom: 5px;
+    background-color: burlywood;
+}
+#profile p{
+    color : rgb(245, 181, 19);
+    font-weight: bold;
+}
+nav button{
+    width : 90%;
+    height : 40px;
+    margin: 10px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    color : rgb(28, 37, 30);
+    font-size: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+nav button:hover{
+    background-color: goldenrod;
+}

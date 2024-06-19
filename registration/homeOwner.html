@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Owner Registration</title>
+        <link rel="stylesheet" href="form.css">
+    </head>
+    <body>
+        <form action="home.html">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div id="name">
+                    <label for="first-name">First Name</label>
+                    <input name="first-name" type="text" spellcheck="false" required>
+                    <label for="father-name">Father's Name</label>
+                    <input name="father-name" tyoe="text" spellcheck="false" required>
+                    <label for="last-name">Grandfather's Name</label>
+                    <input name="last-name" type="text" spellcheck="false" required>
+                </div>
+                <div id="sex">
+                    <h2>Sex</h2>
+                    <label for="m">Male</label>
+                    <input name="gender" type="radio" id="m" value="M" required>
+                    <label for="f">Female</label>
+                    <input name="gender" type="radio" id="f" value="F" required>
+                </div>
+                <label>Photo</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                <!-- <p>Upload photo here</p> -->
+            </fieldset>
+            <fieldset>
+                <legend>Password</legend>
+                <label for="password">Password</label>
+                <input id="password" type="password" name="password" required>
+                <p>
+                    <span id="show-text">Show Password</span>
+                    <img id="show-hide" src="../images/show password icon.jpg" alt="Not supported">
+                </p>
+                <label for="confirm">Confirm Password</label>
+                <input id="confirm" type="password" name="confirm" required>
+                <p id="error">Passwords don't match!</p>
+            </fieldset>
+
+            <input id="submit" type="submit" value="Register">
+        </form>
+        <script src="validate.js"></script>
+    </body>
+</html>

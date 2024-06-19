@@ -1,0 +1,67 @@
+header{
+    position: fixed;
+    left : 0;
+    top : 0;
+    z-index: 2;
+    background-color: #eaf0fc;
+    padding: 50px;
+    width: 100%;
+    height : 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#logo-section{
+    margin-top: -30px;
+    margin-left : -40px;
+    width : 400px;
+    height : 80px;
+    /* background-color: royalblue; */
+}
+#logo-section img{
+    width : 100%;
+    height: 100%;
+    
+    /* height : 50%; */
+}
+header a{
+    text-decoration: none;
+    cursor: pointer;
+    color : black;
+}
+header p:hover{
+    color : #14213d;
+    text-shadow: -1px 2px 2px #14213d;
+}
+#search-bar{
+    display: flex;
+    /* margin-left: 16%; */
+    margin-right: 70px;
+}
+#search-input{
+    height : 25px;
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    width: 200px;
+}
+#search-icon{
+    width : 20px;
+    height : 20px;
+}
+#search-btn{
+    height : 35px; 
+    width : 35px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    border : none;
+    outline: none;
+    cursor: pointer;
+    margin-left: -35px;
+    background-color: rgb(253, 253, 253);
+    opacity: 0.6;
+}
+#search-btn:active{
+    opacity: 0.3;
+}

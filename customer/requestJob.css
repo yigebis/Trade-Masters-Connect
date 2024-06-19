@@ -1,0 +1,39 @@
+#central{
+    position: relative;
+    top : 120px;
+}
+select{
+    width : 100px;
+}
+label{
+    display: block;
+    margin-top : 20px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+#desc{
+    width : 400px;
+    height: 200px;
+}
+#address{
+    width: 250px;
+    height: 30px;
+}
+#submit{
+    width : 150px;
+    height : 40px;
+    background-color: green;
+    color: white;
+    margin-top : 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+#submit:hover{
+    opacity: 0.8;
+}
+#submit:active{
+    opacity: 0.6;
+}

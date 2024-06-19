@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <nav>
+        <div id="profile">
+            <button id="profile-photo">Y</button>
+            <span id="profile-name">Yigerem Bisrat</span>
+            <p>Customer</p>
+        </div>
+        <button class="requests">Requests</button>
+        <button class="previous-jobs">Previous jobs</button>
+        <button class="share-rating">Share Rating</button>
+    </nav>
+    
+    <footer>
+        <div id="left-footer">
+            <p>Trademaster</p>
+            <p>Connect</p>
+        </div>
+        <div id="middle-footer">
+            Copy Right &copy; 2016 E.C.
+        </div>
+        <div id="right-footer">
+            <p>Follow Us:</p>
+            <p>F I in X</p>
+        </div>
+    </footer>
+    <header>
+        <div id="logo-section">
+            <img src="../images/TradeMaster-01.png">
+        </div>
+        <p><a href="home.php">Home</a></p>
+        <p><a href="about.php">About Us</a></p>
+        <button>Log&nbsp;Out</button>
+    </header>
+    
+    <?php
+        require('header.php');
+    ?>
+    
+    <div id="central">
+        <?php
+            require('technicianNav.php');
+        ?>
+        <main>
+            <div id="container">
+                <div class="b1">
+                    <a href="home.html"><button class="button2">home</button></a>
+                    <a href="requests.html"><button class="button2">Requests</button></a><br>
+                    <a href="share rating.html"><button class="button2">Share rating</button></a><br>
+                    <a href="previous acceptance.html"><button class="button2">previous acceptance</button></a><br>
+                    <a href="about us.html"><button class="button2">about us</button></a>
+                    <a href="logout.html"><button class="button2">logout</button></a><br>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <?php
+        require('footer.php');
+    ?>
+    
+    
+</body>
+</html>
