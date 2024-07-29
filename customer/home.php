@@ -1,19 +1,7 @@
 <?php
-    session_start();
+    require('checkCredentials.php');
 
-    if (!isset($_SESSION['username']) || $_SESSION['role'] != 'customer'){
-        header('Location: ../prepages/login.php');
-    }
-
-    $serverName = 'localhost';
-    $userName = 'root';
-    $password = '';
-    $dbName = 'trade masters connect';
-    $conn = new mysqli($serverName, $userName, $password, $dbName);
-
-    if (!$conn){
-        echo "Connection Failed.";
-    }
+    
 
     //array which associates skills with each technician data
     $tech_skills = [];
@@ -64,8 +52,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home Owner</title>
+        <title>Customer</title>
         <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
         <!-- Hiding the json information -->
@@ -81,7 +70,7 @@
             <p><a href="about.php">About Us</a></p>
             <form action="home.php" method="post">
                 <div id="search-bar">
-                    <input name="searchWord" id="search-input" type="text" placeholder="Search Technicians">
+                    <input name="searchWord" id="search-input" type="text" placeholder="Search Technicians" autocomplete="off">
                     <button type="submit" name="search" id="search-btn">
                         <img id="search-icon" src="../images/Search Icon.png">
                     </button>
@@ -108,13 +97,17 @@
                         <?php foreach($info as $row){ ?>
                             <div class="cards" onclick="viewTechnician('<?php echo $row['TechUserName'] ?>')" >
                                 <div class="photo-container">
-                                
+                                    <?php 
+                                        $techUserName = $row['TechUserName'];
+                                        $firstPath = "../PrePages/"
+                                    ?>
+                                    <img src="<?php echo $firstPath.$technicians[$techUserName]['Photo'] ?>" alt="tech-pic">
                                 </div>
                                 <div class="technician-info">
                                     
                                     <p class="technician-name">
                                         <?php 
-                                            $techUserName = $row['TechUserName'];
+                                            
                                             $firstName = $technicians[$techUserName]['First Name'];
                                             $fatherName = $technicians[$techUserName]['Father Name'];
                                             echo $firstName . " " . $fatherName;
@@ -128,24 +121,24 @@
                                         $empty = 5 - ceil($rating);
                                     ?>
                                     <div class="rating">
+                                    <span class="value">(<?php echo number_format($row["Rating"], 1) ?>)</span>
                                         <?php for($i = 0; $i < $fulls; $i++){?>                 
                                             <!-- <img src="../images/TradeMaster-01.png">                -->
-                                            <img class="rating-images" src="../images/filled-rating.png">
+                                            <!-- <img class="rating-images" src="../images/filled-rating.png"> -->
+                                            <span class="fas fa-star full-star"></span>
                                         <?php } ?>
 
                                         <?php if ($portion > 0){?>
-                                            <img class="rating-images" src="../images/half-filled-rating.png">
+                                            <span class="fas fa-star-half-alt half-star"></span>
+                                            <!-- <img class="rating-images" src="../images/half-filled-rating.png"> -->
                                         <?php } ?>
 
                                         <?php for($i = 0; $i < $empty; $i++){?>                 
                                             <!-- <img src="../images/TradeMaster-01.png">                -->
-                                            <img class="rating-images" src="../images/unfilled-rating.png">
+                                            <span class="fas fa-star empty-star"></span>
+                                            <!-- <img class="rating-images" src="../images/unfilled-rating.png"> -->
                                         <?php } 
-                                            if ($rating > 0)
-                                                echo "<b>$rating</b>";
-                                            else {
-                                                echo "<b>unrated</b>";
-                                        }
+                                            
                                         ?>
                                     </div>
 

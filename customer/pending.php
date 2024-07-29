@@ -1,17 +1,5 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['username'])){
-        header('Location: ../PrePages/login.php');
-    }
-
-    $serverName = "localhost";
-    $userName = "root";
-    $password = "";
-    $dbName = "trade masters connect";
-
-    $conn = new mysqli($serverName, $userName, $password, $dbName);
-
-    $username = $_SESSION['username'];
+    require('checkCredentials.php');
 
     $sql = "select * from requests where CustUserName = '$username' and status = 'P' order by date desc";
     $result = $conn -> query($sql);
@@ -28,7 +16,7 @@
     <body>
         <!-- Doing the header -->
         <?php
-            require('../template/header.php');
+            require('../template/headerNoSearch.php');
         ?>
 
         <div id="central">
@@ -88,6 +76,6 @@
             require('../template/footer.php');
         ?>
         
-        <script src="accepted.js"></script>
+        <script src="requests.js"></script>
     </body>
 </html>

@@ -29,6 +29,7 @@ header a{
     cursor: pointer;
     color : black;
 }
+ 
 header p:hover{
     color : #14213d;
     text-shadow: -1px 2px 2px #14213d;

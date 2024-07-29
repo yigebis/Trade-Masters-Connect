@@ -12,7 +12,13 @@
                 <img src="../images/TradeMaster-01.png">
             </div>
             <p><a href="home.php">Home</a></p>
-            <p><a href="about.php">About Us</a></p>      
+            <p><a href="about.php">About Us</a></p>
+            <div id="search-bar">
+                <input id="search-input" type="text" placeholder="Search Jobs">
+                <button id="search-btn">
+                    <img id="search-icon" src="Images/Search Icon.png">
+                </button>
+            </div>            
     </header>
 </body>
 </html>

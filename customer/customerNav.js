@@ -12,3 +12,11 @@ for (let i = 0; i < pending.length; i++){
         window.location.href = 'pending.php';
     }) 
 }
+
+function rateTechnicians(){
+    window.location.href = "rateTechnicians.php";
+}
+
+function viewProfile(){
+    window.location.href = "customerPP.php";
+}

@@ -1,0 +1,202 @@
+body {
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.Technician-container{
+    width: 500px;
+    background: #dcf1f8;
+    border: 2px solid rgba(255, 255, 255, 2);
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #14213d;
+    border-radius: 10px;
+
+    padding:30px 40px;
+
+}
+.Technician-container .profile p{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #14213d;
+}
+.paragraph{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 600;
+    color: #14213d;
+}
+.Technician-container .profile {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+}
+#image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow:0 0 10px rgba(0,0,0,0.5,);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Technician-container .profile:hover #image{
+    transform: scale(1.2);
+}
+.Technician-container .profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.technician-form {
+    width: 100%;
+    margin: 30px 0;
+    position: relative;
+    text-align: center;
+}
+
+.technician-form input {
+    width: 90%;
+    height: 100%;
+    background: transparent;
+
+    outline: none;
+    border: 2px solid #14213d;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #14213d;
+    padding: 20px 40px 20px 20px;
+    margin: 10px 0;
+}
+.input-box label {
+    display:flex;
+    align-self: flex-start;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    font-weight: bold;
+  }
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 60%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #14213d;
+}
+.signup-form input::placeholder {
+    color: #14213d;
+}
+ 
+
+
+button {
+    width: 50%;
+    height: 45px;
+    background: #14213d;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+ 
+
+button:hover {
+    background-color: #ffffff;
+    color: #14213d;
+}
+.modify-pass{
+    display: none;
+}
+.file-box input[type="file"] {
+    border: none;
+    margin: 0px;
+}
+.file-box label {
+    display: flex;
+    justify-content: left;
+    margin-bottom: -15px;
+    margin-left: 20px;
+}
+.profile{
+    gap: 4px;
+}
+.profile .rightRound{
+    position: absolute;
+      
+    margin-left: 80px;
+    background: #00B4FF;
+    width: 30px;
+    height: 30px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    
+}
+.profile .leftRound {
+    position: absolute;
+    
+    background: red;
+    margin-right: 80px;
+    width: 30px;
+    height: 30px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+     
+}
+ 
+ 
+
+.profile input[type="file"] {
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+    cursor: pointer;
+}
+
+.profile input[type="submit"] {
+    display: none;
+}
+
+.fa {
+    color: #fff;
+     
+     
+}
+.profile input::-webkit-file-upload-button,.upload input[type=submit] {
+    cursor:pointer;
+}
+  
+  

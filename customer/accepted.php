@@ -1,19 +1,7 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['username'])){
-        header('Location: ../PrePages/login.php');
-    }
+    require('checkCredentials.php');
 
-    $serverName = "localhost";
-    $userName = "root";
-    $password = "";
-    $dbName = "trade masters connect";
-
-    $conn = new mysqli($serverName, $userName, $password, $dbName);
-
-    $username = $_SESSION['username'];
-
-    $sql = "select * from requests where CustUserName = '$username' and status = 'A'";
+    $sql = "select * from requests where CustUserName = '$username' and status = 'A' order by CustSeen asc, date desc";
     $result = $conn -> query($sql);
     
 
@@ -28,7 +16,7 @@
     <body>
         <!-- Doing the header -->
         <?php
-            require('../template/header.php');
+            require('../template/headerNoSearch.php');
         ?>
 
         <div id="central">
@@ -44,9 +32,12 @@
                     }
                     ?>
                     <?php while ($row = $result -> fetch_assoc()){ ?>
-                        <li>
+                        <li onclick="acceptedDetails('<?php echo $username ?>', '<?php echo $row['TechUserName'] ?>', '<?php echo $row['Date'] ?>', '<?php echo $row['Skill Title'] ?>')">
                             <?php 
                                 $date = $row['Date'];
+                                $formattedDate = DateTime :: createFromFormat('Y-m-d H:i:s', $date);
+                                $formattedDate = $formattedDate -> format('F d Y h:i A');
+
                                 $jobTitle = $row['Skill Title'];
                                 $techUserName = $row['TechUserName'];
                                 $sql = "select * from Technician where UserName = '$techUserName'";
@@ -66,7 +57,7 @@
                                     <span class="date">
                                         <!-- March&nbsp;4&nbsp;2016 -->
                                         <?php 
-                                            echo $date;
+                                            echo $formattedDate;
                                         ?>
                                     </span>   
                                 </p>
@@ -76,7 +67,10 @@
                                     Contact
                                     <button class="phone"><?php echo $phone ?></button>
                                 </span>
-                                <button class="new-request-btn">N</button>
+                                <?php if ($row["CustSeen"] == "N"){
+                                    echo '<button class=new-request-btn>N</button>';
+                                }
+                                ?>
                             </div>
                         </li>
                     <?php } ?>
@@ -88,6 +82,6 @@
             require('../template/footer.php');
         ?>
         
-        <script src="accepted.js"></script>
+        <script src="requests.js"></script>
     </body>
 </html>

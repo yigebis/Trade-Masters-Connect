@@ -1,26 +1,8 @@
 <?php
 
-    session_start();
+    require('checkCredentials.php');
 
-    if (!isset($_SESSION['username']) || $_SESSION['role'] != 'technician'){
-        header('Location: ../prepages/login.php');
-        exit;
-    }
-
-    $serverName = 'localhost';
-    $userName = 'root';
-    $password = '';
-    $dbName = 'trade masters connect';
-    $conn = new mysqli($serverName, $userName, $password, $dbName);
-
-    if (!$conn){
-        echo "Connection Failed.";
-        exit;
-    }
-
-    $username = $_SESSION['username'];
-
-    $sql = "select * from requests where TechUserName = '$username' and status = 'P'";
+    $sql = "select * from requests where TechUserName = '$username' and status = 'P' ORDER BY Date DESC";
     $result = $conn -> query($sql);
 
 ?>
@@ -35,7 +17,7 @@
     <body>
         <!-- Doing the header -->
         <?php
-            require('../template/header.php');
+            require('../template/headerNoSearch.php');
         ?>
 
         <div id="central">
@@ -45,7 +27,7 @@
             <!-- The main contents -->
             <main>
                 <ul id="pending-requests">
-                    <h1>Pending Requests</h1>
+                    <h1>Work Requests</h1>
                     
                     <?php
                         if ($result -> num_rows == 0){
@@ -53,7 +35,7 @@
                         }
                     ?>
                     <?php while ($row = $result -> fetch_assoc()){ ?>
-                        <li onclick="viewRequestDetails('<?php echo $row['Date'] ?>', '<?php echo $username ?>', '<?php echo $row['CustUserName'] ?>')">
+                        <li>
                             <?php 
                                 // print_r($row);
                                 $date = $row['Date'];
@@ -61,29 +43,23 @@
                                 $date = $date -> format('F d Y h:i A');
                                 $jobTitle = $row['Skill Title'];
                                 $custUserName = $row['CustUserName'];
-                                $sql = "select * from Customer where 1 = 1";
+                                $sql = "select * from Customer where UserName = '$custUserName'";
                                 $subResult = $conn -> query($sql);
                                 $details = $subResult -> fetch_assoc();
                                 // print_r($details);
                                 $firstName = $details['First Name'];
                                 $fatherName = $details['Father Name'];
                                 $gfName = $details['Grand Father Name'];
+                                $location = $row['Location'];
                             ?>
                             <div class="left-detail">
-                                <p class="name"><?php echo $firstName ." ". $fatherName ." ". $gfName ?></p>
-                                <p class="job-date">
-                                    <span class="job-title"><?php echo $jobTitle ?></span>
-                                    <span>&middot;</span>
-                                    <span class="date">
-                                        <?php 
-                                            echo $date;
-                                        ?>
-                                    </span>   
-                                </p>
+                                <h2><?php echo $jobTitle ?></h2>
+                                <p class="name"><span>User: </span><?php echo  $firstName ." ". $fatherName ." ". $gfName ?></p>
+                                <p class="job-date"><span>Date: </span><?php echo $date;?></p>
+                                <p><span>Location: </span><?php echo $location ?> </p>
+                                <button class="details" onclick="viewRequestDetails('<?php echo $row['Date'] ?>', '<?php echo $username ?>', '<?php echo $row['CustUserName'] ?>', '<?php echo $jobTitle ?>')" >View Details</button>
                             </div>
-                            <div class="photo-div">
-
-                            </div>
+                             
                         </li>
                     <?php } ?>
                 </ul>

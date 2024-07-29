@@ -29,6 +29,7 @@
                 $error = "Incorrect username or password";
             }
             else{
+                $username = $row['username'];
                 $hashed = $row['PassHash'];
                 if (! password_verify($password, $hashed)){
                     $error = "Incorrect username or password";
@@ -36,9 +37,16 @@
                 else{
                     // $error = "Success";
                     session_start();
+                    $cookie_name = "cust_session_id";
+                    $session_id = session_create_id();
+                    // echo $session_id;
 
-                    $_SESSION['username'] = $username;
-                    $_SESSION['role'] = 'customer';
+                    $recordUserQuery = "insert into login_customer values (?, ?)";
+                    $recordUserStmt = $conn -> prepare($recordUserQuery);
+                    $recordUserStmt -> bind_param("ss", $session_id, $username);
+                    $recordUserStmt -> execute();
+
+                    setcookie($cookie_name, $session_id, time() + (86400 * 30), "/");
                     header('Location: ../customer/home.php');
                 }
             }
@@ -62,9 +70,16 @@
                 else{
                     // $error = "Success";
                     session_start();
+                    $cookie_name = "tech_session_id";
+                    $session_id = session_create_id();
+                    // echo $session_id;
 
-                    $_SESSION['username'] = $username;
-                    $_SESSION['role'] = 'technician';
+                    $recordUserQuery = "insert into login_technician values (?, ?)";
+                    $recordUserStmt = $conn -> prepare($recordUserQuery);
+                    $recordUserStmt -> bind_param("ss", $session_id, $username);
+                    $recordUserStmt -> execute();
+
+                    setcookie($cookie_name, $session_id, time() + (86400 * 30), "/");
                     header('Location: ../technician/home.php');
                 }
             }
@@ -132,7 +147,7 @@
             <button type="submit" class="btn">Login</button>
 
             <div class="info-text">
-                <p>Don't have an account? <a href="signUp.html">Sign up here.</a></p>
+                <p>Don't have an account? <a href="signUp.php">Sign up here.</a></p>
                 <p>By logging in, you agree to our <a href="privacy.html">privacy statement.</a></p>
             </div>
         </form>

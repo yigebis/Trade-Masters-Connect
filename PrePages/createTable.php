@@ -68,7 +68,8 @@ $sql = "CREATE TABLE technician_skill (
     SkillTitle VARCHAR(30) NOT NULL,
     Experience INT(11) NOT NULL,
     Rating float NOT NULL,
-    CertificateLink VARCHAR(50) NOT NULL
+    RatedBy INT NOT NULL DEFAULT '0',
+    CertificateLink VARCHAR(50) NOT NULL,
     PRIMARY KEY (`TechUserName`, `SkillTitle`),
     FOREIGN KEY (`TechUserName`) REFERENCES `technician` (`UserName`),
     FOREIGN KEY (`SkillTitle`) REFERENCES `skill` (`Title`)
@@ -85,7 +86,9 @@ $sql = "CREATE TABLE `requests` (
     `Rating` INT(11) DEFAULT NULL,
     `Date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `Status` CHAR(1) NOT NULL,
-    PRIMARY KEY (`TechUserName`, `CustUserName`, `Skill Title`),
+    `CustSeen` VARCHAR(1) NOT NULL DEFAULT 'N',
+    `TechSeen` VARCHAR(1) NOT NULL DEFAULT 'N',
+    PRIMARY KEY (`TechUserName`, `CustUserName`, `Skill Title`, `Date`),
     FOREIGN KEY (`TechUserName`) REFERENCES `Technician` (`UserName`),
     FOREIGN KEY (`CustUserName`) REFERENCES `Customer` (`UserName`),
     FOREIGN KEY (`Skill Title`) REFERENCES `Skill` (`Title`)

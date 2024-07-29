@@ -1,13 +1,5 @@
 <?php
-    $serverName = 'localhost';
-    $userName = 'root';
-    $password = '';
-    $dbName = 'trade masters connect';
-    $conn = new mysqli($serverName, $userName, $password, $dbName);
-
-    if (!$conn){
-        echo "Connection Failed.";
-    }
+    require('checkCredentials.php');
 
     //array which associates skills with each technician data
 

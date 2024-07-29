@@ -1,15 +1,5 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['username'])){
-        header('Location: ../PrePages/login.php');
-    }
-
-    $serverName = "localhost";
-    $userName = "root";
-    $password = "";
-    $dbName = "trade masters connect";
-
-    $conn = new mysqli($serverName, $userName, $password, $dbName);
+    require('checkCredentials.php');
 
     // $username = $_SESSION['username'];
     $date = $_GET['date'];
@@ -50,7 +40,7 @@
 
 </head>
 <body>
-    <?php require('../template/header.php')?>
+    <?php require('../template/headerNoSearch.php')?>
 
     <div id="central">
         <h1>Technician Name</h1>

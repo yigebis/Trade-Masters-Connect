@@ -1,52 +1,104 @@
-#central{
-    position : relative;
-    top : 150px;
-}
-.photo-container{
-    width : 200px;
-    height : 200px;
-    background-color: orange;
-}
-p{
-    margin-left : 15px;
-    font-size: 20px;
-    font-weight: bold;
-}
-li{
-    list-style: none;
-}
-.bio-div{
-    width : 50%;
-    margin-left : 20px;
-    font-style: italic;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-#request-btn{
-    width : 50%;
-    height: 40px;
-    font-size: 22px;
+#central {
+    position: relative;
+    top: 120px;
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.technician-status {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-container {
+    width: 200px;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.technician-details {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.technician-details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.technician-details .label {
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+}
+
+.technician-skills h1, .technician-bio h1 {
+    font-size: 24px;
+    margin: 20px 0 10px 0;
+}
+
+.technician-skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.technician-skills li {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.rating-images {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+#request-btn {
+    background-color: #28a745;
     color: white;
-    margin-top : 30px;
-    margin-left: 25%;
-    background-color: green;
-    outline: none;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
-}
-#request-btn:hover{
-    opacity: 0.7;
-}
-#request-btn:active{
-    opacity: 0.4;
-}
-.rating-container{
-    background-color: white;
-    width : 150px;
+    font-size: 18px;
+    border-radius: 5px;
     margin-top: 20px;
 }
-.rating-images{
-    width : 30px;
-    height : 30px;
-    margin-right : -4px;
+
+#request-btn:hover {
+    background-color: #218838;
+}
+.full-star
+{
+color: gold;
+} 
+.empty-star{
+    color : rgb(204, 202, 202);
+}
+  
+.half-star {
+overflow: hidden;
+/* width: 50%;  */
+color: gold;
 }

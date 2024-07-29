@@ -140,10 +140,7 @@ nav ul {
     background-color: #edf6f9;
     margin-top: 50px;
     align-items: center;
-
     height: 120px;
-    margin-bottom: 20px;
-
 }
 
 .footter h3 {
@@ -185,7 +182,7 @@ nav ul {
     width: 1px;
     height: 100px;
     padding: 5px;
-    margin-left: -300px;
+    margin-left: -250px;
 }
 
 .copyRight {

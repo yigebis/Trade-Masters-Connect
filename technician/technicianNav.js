@@ -9,3 +9,7 @@ function viewAcceptedJobs(){
 function viewRejectedRequests(){
     window.location.href = "rejected.php";
 }
+
+function viewProfile(){
+    window.location.href = "technicianPP.php";
+}
