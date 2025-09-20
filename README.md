@@ -24,11 +24,13 @@ Customers can browse technicians, request services, and leave ratings to help ot
 ---
 
 ## 📂 Project Structure
+```text
 Trade-Masters-Connect/
-│── customer/ # Customer-related pages and logic
-│── technician/ # Technician-related pages and logic
-│── vendor/ # Vendor libraries (via Composer)
-│── template/ # Shared templates (header, footer, etc.)
-│── connection/ # Database connection files
-│── images/ # Static assets
-│── composer.json # Dependency configuration
+├── customer/        # Customer-related pages and logic
+├── technician/      # Technician-related pages and logic
+├── vendor/          # Vendor libraries (via Composer)
+├── template/        # Shared templates (header, footer, etc.)
+├── connection/      # Database connection files
+├── images/          # Static assets (icons, photos, etc.)
+└── composer.json    # Dependency configuration
+
